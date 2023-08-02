@@ -9,6 +9,7 @@ export default {
       colors:{
         'purple-primary':'#600DC7',
         'cyan-primary':'#20F2CC',
+        'black-text':'#262626',
       },
     },
   },
