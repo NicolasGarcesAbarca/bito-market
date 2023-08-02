@@ -3,7 +3,7 @@ import NavBar from "./components/navbar"
 function App() {
 
   return (
-    <main >
+    <main>
       <NavBar/>
       <section className='bg-purple-primary min-h-screen px-20'>
       <h1 className='text-3xl text-white'>Hola</h1>
