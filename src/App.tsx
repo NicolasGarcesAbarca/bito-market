@@ -1,11 +1,12 @@
+import Card from "./components/card"
 import NavBar from "./components/navbar"
-
+const beatIterator = [0, 0, 0, 0, 0, 0, 0, 0]
 function App() {
 
   return (
     <main>
       <NavBar />
-      <section className='bg-purple-primary min-h-screen px-20 grid grid-cols-2'>
+      <section className='bg-purple-primary min-h-screen px-28 grid grid-cols-2'>
         <div className="flex flex-col justify-center">
           <div className='text-6xl text-white tracking-wide'>
             <h1 >ENCUENTRA</h1>
@@ -18,9 +19,14 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="bg-gray-300 h-screen pt-20 px-20">
-        <div>
-          <h1 className="text-4xl text-center text-black-text">MAS DE 10000 BEATMAKERS</h1>
+      <section className="bg-gray-300 min-h-screen px-28">
+        <div className="py-20">
+          <h1 className="text-4xl text-center text-black-text">REVISA EL CATÁLOGO DE BEATS</h1>
+        </div>
+        <div className="grid grid-cols-3 gap-8">
+          {
+            beatIterator.map(beat => <Card price={beat} />)
+          }
         </div>
       </section>
     </main>
