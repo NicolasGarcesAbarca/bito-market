@@ -7,7 +7,7 @@ function App() {
     <main>
       <NavBar />
       <section className='bg-purple-primary min-h-screen px-28 grid grid-cols-2'>
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center pb-10">
           <div className='text-6xl text-white tracking-wide'>
             <h1 >ENCUENTRA</h1>
             <h1 >LOS</h1>
