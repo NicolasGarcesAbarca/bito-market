@@ -5,6 +5,9 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily:{
+      'sans':['Open\\ Sans']
+    },
     extend: {
       colors:{
         'purple-primary':'#600DC7',
