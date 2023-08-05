@@ -26,7 +26,7 @@ function LoginForm() {
             actions.setSubmitting(false)
             actions.resetForm()
             toast.success('Entrando en BITO')
-            navigate('/')
+            navigate('/profile')
         } else {
             toast.error('Falló el login, prueba de nuevo')
         }
