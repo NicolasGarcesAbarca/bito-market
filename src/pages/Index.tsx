@@ -1,7 +1,8 @@
-import Card from "./components/card"
-import NavBar from "./components/navbar"
+import Card from "../components/card"
+import NavBar from "../components/navbar"
 const beatIterator = [0, 0, 0, 0, 0, 0, 0, 0]
-function App() {
+
+function Index() {
 
   return (
     <main>
@@ -33,4 +34,4 @@ function App() {
   )
 }
 
-export default App
+export default Index
