@@ -16,7 +16,6 @@ const initValues: IRegisterValues = {
 }
 
 const onSubmit = async (values: IRegisterValues, actions: FormikHelpers<IRegisterValues>) => {
-    console.log({ values })
     try{
         await create(values)
         toast.success('Usuario Creado')
