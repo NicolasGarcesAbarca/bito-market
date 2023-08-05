@@ -1,6 +1,7 @@
 import { Formik, Form, FormikHelpers } from "formik";
 import InputText from "./InputText";
 import { validateRegister } from "../../lib/formValidation";
+import { create } from "../../services/user";
 
 export interface IRegisterValues {
     email: string
@@ -16,6 +17,13 @@ const initValues: IRegisterValues = {
 
 const onSubmit = async (values: IRegisterValues, actions: FormikHelpers<IRegisterValues>) => {
     console.log({ values })
+    try{
+        const x = await create(values)
+        console.log({onsubmit_register:x})
+    }catch(err){
+        console.log({ err })
+    }
+    
     actions.setSubmitting(false)
     actions.resetForm()
 }
