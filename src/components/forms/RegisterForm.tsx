@@ -2,7 +2,7 @@ import { Formik, Form, FormikHelpers } from "formik";
 import InputText from "./InputText";
 import { validateRegister } from "../../lib/formValidation";
 import { create } from "../../services/user";
-
+import toast from 'react-hot-toast';
 export interface IRegisterValues {
     email: string
     password: string
@@ -20,8 +20,10 @@ const onSubmit = async (values: IRegisterValues, actions: FormikHelpers<IRegiste
     try{
         const x = await create(values)
         console.log({onsubmit_register:x})
+        toast.success('Usuario Creado')
     }catch(err){
         console.log({ err })
+        toast.error('Hubo un error al crear usuario')
     }
     
     actions.setSubmitting(false)
