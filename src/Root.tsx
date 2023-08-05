@@ -5,11 +5,14 @@ import {
 import { Toaster } from 'react-hot-toast';
 import router from './routes';
 import AuthProvider from './context/Auth';
+import DialogProvider from './context/Dialog';
 function Root() {
   return <>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <DialogProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </DialogProvider>
     <Toaster />
   </>
 }
