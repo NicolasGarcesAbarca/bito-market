@@ -5,6 +5,7 @@ import LoginPage from './pages/Login';
 import RegisterPage from './pages/Register';
 import Index from './pages/Index';
 import ProfilePage from "./pages/Profile";
+import UploadBeat from "./pages/UploadBeat";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "profile",
     element: <ProfilePage />
+  },
+  {
+    path: "upload",
+    element: <UploadBeat />
   }
 ]);
 

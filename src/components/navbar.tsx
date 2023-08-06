@@ -7,7 +7,7 @@ function NavBar() {
             <ul className='flex gap-4 text-base text-black-text'>
                 <li><Link to={'/login'}>ENTRAR</Link></li>
                 <li><Link to={'/register'}>REGISTRARSE</Link></li>
-                <li className="text-purple-primary"><Link to={'/'}>VENDER</Link></li>
+                <li className="text-purple-primary"><Link to={'/upload'}>SUBIR BEAT</Link></li>
             </ul>
         </nav>
     )

@@ -4,25 +4,27 @@ import { validateRegister } from "../../lib/formValidation";
 import { create } from "../../services/user";
 import toast from 'react-hot-toast';
 export interface IRegisterValues {
+    name:string
     email: string
     password: string
     passwordConfirmation: string
 }
 
 const initValues: IRegisterValues = {
+    name:'',
     email: '',
     password: '',
     passwordConfirmation: '',
 }
 
 const onSubmit = async (values: IRegisterValues, actions: FormikHelpers<IRegisterValues>) => {
-    try{
+    try {
         await create(values)
         toast.success('Usuario Creado')
-    }catch(err){
+    } catch (err) {
         toast.error('Hubo un error al crear usuario')
     }
-    
+
     actions.setSubmitting(false)
     actions.resetForm()
 }
@@ -33,7 +35,13 @@ function RegisterForm() {
         validate={validateRegister}
         onSubmit={onSubmit}
     >
-        <Form className="flex flex-col gap-6 w-full">
+        <Form className="flex flex-col gap-3 w-full">
+            <InputText
+                label="Nombre"
+                name="name"
+                type="text"
+                placeholder="kid_Yugi"
+            />
             <InputText
                 label="Email"
                 name="email"

@@ -36,8 +36,8 @@ export default function InputImage(props: Props) {
     }, [file, initialUrl])
     return (
         <div className='flex w-full'>
-            <div className='flex items-center w-1/3'>
-                <label className='block w-full border border-purple-primary text-purple-primary cursor-pointer p-3'>
+            <div className=' w-1/3'>
+                <label className='block w-full bg-slate-400 hover:bg-slate-500 cursor-pointer p-3'>
                     <input
                         className='hidden'
                         {...field}
@@ -46,14 +46,14 @@ export default function InputImage(props: Props) {
                             handleFileChange(e)
                         }}
                     />
-                    <p className='text-sm text-center'>BUSCAR IMÁGEN</p>
+                    <p className='font-sans text-white font-bold text-sm text-center'>Buscar Imágen</p>
                 </label>
             </div>
-            <div className='w-2/3 flex justify-center'>
+            <div className='w-2/3 flex justify-end'>
                 {url ? (
                     <img className="border object-cover w-1/3 aspect-square" src={url} alt="preview upload image" />
                 ) : (
-                    <div className='flex justify-center items-center bg-slate-800 w-1/3 aspect-square'>
+                    <div className='flex justify-center items-center bg-slate-600 w-1/3 aspect-square'>
                         <p className='font-sans text-sm text-white text-center font-semibold'>No hay imagen seleccionada</p>
                     </div>
                 )}
