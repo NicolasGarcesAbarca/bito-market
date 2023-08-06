@@ -1,6 +1,6 @@
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { getURL } from "./url";
-
+import {v4} from 'uuid'
 const storage = getStorage();
 
 type Props = {
@@ -8,9 +8,11 @@ type Props = {
     audioFile: File;
     email: string;
 }
+
 export async function uploadPackAudioImage({ audioFile, imageFile, email }: Props) {
-    const audioRef = ref(storage, `${email}/uuid/${audioFile.name}`)
-    const imageRef = ref(storage, `${email}/uuid/${imageFile.name}`)
+    const id = v4()
+    const audioRef = ref(storage, `${email}/${id}/${audioFile.name}`)
+    const imageRef = ref(storage, `${email}/${id}/${imageFile.name}`)
     try {
         await uploadBytes(audioRef, audioFile)
         await uploadBytes(imageRef, imageFile)

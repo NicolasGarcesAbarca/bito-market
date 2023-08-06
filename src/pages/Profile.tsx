@@ -15,6 +15,7 @@ function ProfilePage() {
     return <main className="bg-slate-950 min-h-screen text-white px-32">
         <p>{user?.email}</p>
         <p>{user?.uid}</p>
+        <p>{user?.displayName}</p>
         <button onClick={handleClick()} className="bg-cyan-primary text-black-text p-3">SUBIR NUEVO BEAT</button>
     </main>
 }

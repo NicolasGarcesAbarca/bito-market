@@ -34,16 +34,16 @@ function UploadBeatForm() {
         values: IValuesUploadBeat,
         actions: FormikHelpers<IValuesUploadBeat>,
     ) => {
-        if (imageFile && audioFile && user && user.email) {
+        if (imageFile && audioFile && user && user.email && user.displayName) {
             try {
-                
-                const {imageURL,audioURL} =await uploadPackAudioImage({ imageFile, audioFile, email: user.email })
+                const { imageURL, audioURL } = await uploadPackAudioImage({ imageFile, audioFile, email: user.email })
                 await createBeat({
-                    title:values.title,
-                    price:values.price,
+                    title: values.title,
+                    price: values.price,
                     imageURL,
                     audioURL,
-                    uid:user.uid
+                    uid: user.uid,
+                    author:user.displayName,
                 })
                 toast.success('Archivos subidos correctamente')
             } catch (err) {
@@ -61,13 +61,13 @@ function UploadBeatForm() {
         validate={validateUploadBeat}
         onSubmit={onSubmit}>
         <Form className='flex flex-col gap-6'>
-            <InputText 
+            <InputText
                 label="Título"
                 name="title"
                 type="text"
                 placeholder="bass drop x"
             />
-            <InputText 
+            <InputText
                 label="Precio de venta"
                 name="price"
                 type="text"
