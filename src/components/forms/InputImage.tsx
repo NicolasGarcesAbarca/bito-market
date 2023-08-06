@@ -1,5 +1,6 @@
 import { useField } from 'formik'
 import { useEffect, useState } from 'react'
+import { ImFilePicture } from "react-icons/im";
 
 interface Props {
     name: string
@@ -46,7 +47,10 @@ export default function InputImage(props: Props) {
                             handleFileChange(e)
                         }}
                     />
-                    <p className='font-sans text-white font-bold text-sm text-center'>Buscar Imágen</p>
+                    <div className='text-white flex items-center justify-center gap-2'>
+                        <ImFilePicture />
+                        <p className='font-sans text-white font-bold text-sm text-center'>Buscar Imágen</p>
+                    </div>
                 </label>
             </div>
             <div className='w-2/3 flex justify-end'>

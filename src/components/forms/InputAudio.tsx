@@ -1,5 +1,5 @@
 import { useField } from 'formik'
-
+import { ImFileMusic } from "react-icons/im";
 interface Props {
     name: string
     type: 'file'
@@ -33,7 +33,10 @@ export default function InputAudio(props: Props) {
                             handleFileChange(e)
                         }}
                     />
-                    <p className='font-sans font-bold text-sm text-center text-white'>Buscar mp3</p>
+                    <div className='text-white flex items-center justify-center gap-2'>
+                        <ImFileMusic />
+                        <p className='font-sans font-bold text-sm text-center text-white'>Buscar mp3</p>
+                    </div>
                 </label>
             </div>
             <div className='w-2/3 flex items-center justify-end'>
