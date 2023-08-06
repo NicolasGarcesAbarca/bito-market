@@ -8,11 +8,11 @@ import AuthProvider from './context/Auth';
 import DialogProvider from './context/Dialog';
 function Root() {
   return <>
-    <DialogProvider>
-      <AuthProvider>
+    <AuthProvider>
+      <DialogProvider>
         <RouterProvider router={router} />
-      </AuthProvider>
-    </DialogProvider>
+      </DialogProvider>
+    </AuthProvider>
     <Toaster />
   </>
 }
