@@ -4,6 +4,8 @@ import { validateLogin } from "../../lib/formValidation";
 import { loginWithEmailAndPassword } from "../../firebase/login";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { Spinner } from "flowbite-react";
+import { useState } from "react";
 
 export interface ILoginValues {
     email: string
@@ -19,16 +21,19 @@ const initValues: ILoginValues = {
 
 function LoginForm() {
     const navigate = useNavigate()
-    
+    const [loading, setLoading] = useState(false)
     const onSubmit = async (values: ILoginValues, actions: FormikHelpers<ILoginValues>) => {
-        const loginOk = await loginWithEmailAndPassword(values)
-        if (loginOk) {
+        try {
+            setLoading(true)
+            await loginWithEmailAndPassword(values)
             actions.setSubmitting(false)
             actions.resetForm()
-            toast.success('Entrando en BITO')
-            navigate('/profile')
-        } else {
+            toast.success('Bienvenido a BITO')
+            navigate('/upload')
+        } catch (err) {
             toast.error('Falló el login, prueba de nuevo')
+        } finally {
+            setLoading(false)
         }
 
     }
@@ -50,9 +55,15 @@ function LoginForm() {
                 type="password"
                 placeholder=""
             />
-            <button className='bg-purple-primary text-white mt-6 py-2' type="submit">
-                ENTRAR
-            </button>
+            {loading ?
+                <div className="flex justify-center mt-6">
+                    <Spinner size="xl" color="purple" />
+                </div>
+                :
+                <button className='bg-purple-primary text-white mt-6 py-2' type="submit">
+                    ENTRAR
+                </button>
+            }
         </Form>
     </Formik>
 }

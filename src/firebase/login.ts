@@ -5,8 +5,8 @@ import { ILoginValues } from "../components/forms/LoginForm";
 export async function loginWithEmailAndPassword({ email, password }: ILoginValues) {
     try{
         await signInWithEmailAndPassword(auth,email,password);
-        return true
+        return
     }catch(_err){
-        return false
+        throw new Error("Error en el login")
     }
 }

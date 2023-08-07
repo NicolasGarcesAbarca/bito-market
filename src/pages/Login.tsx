@@ -1,5 +1,6 @@
 import LoginForm from "../components/forms/LoginForm"
 import { useNavigate } from "react-router-dom"
+import { PiArrowFatLeftBold } from "react-icons/pi"
 function LoginPage() {
     const navigate = useNavigate()
     return <main className="bg-slate-950 min-h-screen">
@@ -7,7 +8,8 @@ function LoginPage() {
             <div className="absolute">
                 <button
                     onClick={() => navigate('/')}
-                    className="bg-cyan-primary p-3">
+                    className="bg-cyan-primary hover:bg-cyan-400 p-3 flex items-center gap-1">
+                    <PiArrowFatLeftBold />
                     <p className="text-sm text-black-text">VOLVER</p>
                 </button>
             </div>
