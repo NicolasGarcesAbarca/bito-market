@@ -6,6 +6,7 @@ import RegisterPage from './pages/Register';
 import Index from './pages/Index';
 import ProfilePage from "./pages/Profile";
 import UploadBeat from "./pages/UploadBeat";
+import BlockNonAuth from "./components/BlockNonAuth";
 
 const router = createBrowserRouter([
   {
@@ -22,11 +23,11 @@ const router = createBrowserRouter([
   },
   {
     path: "profile",
-    element: <ProfilePage />
+    element: <BlockNonAuth><ProfilePage /></BlockNonAuth>
   },
   {
     path: "upload",
-    element: <UploadBeat />
+    element: <BlockNonAuth><UploadBeat /></BlockNonAuth>
   }
 ]);
 
