@@ -1,8 +1,9 @@
+import { useNavigate } from "react-router-dom"
 import BeatCatalog from "../components/BeatCatalog"
 import NavBar from "../components/navbar"
 
 function Index() {
-
+  const navigate = useNavigate()
   return (
     <main>
       <NavBar />
@@ -15,7 +16,7 @@ function Index() {
             <h1 >EN BITO</h1>
           </div>
           <div className="mt-8 flex justify-center md:justify-start">
-            <button className="bg-cyan-primary p-4 text-xl text-black-text">INCRIBIRME</button>
+            <button className="bg-cyan-primary hover:bg-cyan-400 p-4 text-xl text-black-text" onClick={()=>{navigate('/register')}}>INCRIBIRME</button>
           </div>
         </div>
       </section>
