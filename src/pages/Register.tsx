@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import RegisterForm from "../components/forms/RegisterForm"
+import {PiArrowFatLeftBold} from "react-icons/pi"
 function RegisterPage() {
     const navigate = useNavigate()
     return <main className="bg-slate-950 min-h-screen">
@@ -7,7 +8,8 @@ function RegisterPage() {
             <div className="absolute">
                 <button
                     onClick={() => navigate('/')}
-                    className="bg-cyan-primary p-3">
+                    className="bg-cyan-primary hover:bg-cyan-400 p-3 flex items-center gap-1">
+                        <PiArrowFatLeftBold/>
                     <p className="text-sm text-black-text">VOLVER</p>
                 </button>
             </div>
