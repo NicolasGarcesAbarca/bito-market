@@ -11,7 +11,7 @@ import BlockNonAuth from "./components/BlockNonAuth";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Index />,
+    element: <BlockNonAuth><Index /></BlockNonAuth>,
   },
   {
     path: "login",

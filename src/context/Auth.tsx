@@ -1,6 +1,7 @@
 import { useState, useEffect, createContext, ReactNode } from "react";
 import { User, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase/init"
+import { setJWT } from "../services/api";
 
 type AuthContext = {
     user: User | null
@@ -13,10 +14,11 @@ function AuthProvider({ children }: { children: ReactNode }) {
     const [user, setUser] = useState<User | null>(null)
     const [userLoading, setUserLoading] = useState(true)
     useEffect(() => {
-        console.log('AuthProvider')
-        const unsuscribe = onAuthStateChanged(auth, (userFirebase) => {
+        const unsuscribe = onAuthStateChanged(auth,async (userFirebase) => {
             setUserLoading(true)
             setUser(userFirebase)
+            const jwt= await userFirebase?.getIdToken() 
+            setJWT(jwt)
             setUserLoading(false)
         })
         return unsuscribe
